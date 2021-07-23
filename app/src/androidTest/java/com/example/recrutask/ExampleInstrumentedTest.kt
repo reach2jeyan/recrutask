@@ -56,11 +56,7 @@ class ExampleInstrumentedTest {
     }
     @Test
     fun checkTextview() {
-        /**not matcher is used to assert text that should not match a specific. However this test will pass as the password text is masked and
-         * has hashed code. We could write a custom text matcher to fetch the value in the text field with
-         * something like editText.getText() and use it with assertEquals. However, I usually just write a text and assert using matcher
-         *
-         */
+        /**not matcher is used to assert text that should not match a specific. */
         onView(withId(R.id.editTextTextPassword)).check(ViewAssertions.matches(not(withText("Hopin"))))
 
     }
@@ -89,6 +85,9 @@ class ExampleInstrumentedTest {
 
     @Test
     fun testDynamictext() {
+        /** Given the default text is present in the next screen
+         * when the text is changed in the first screen
+         * then check if the default text is changed in the next screen and is same as first screen*/
         elements.nextActivity.perform(ViewActions.click())
         onView(withText(elements.secondaActivityDefaultText)).check(ViewAssertions.matches(isDisplayed()))
         pressBack()

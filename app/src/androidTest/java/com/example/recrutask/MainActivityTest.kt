@@ -1,6 +1,9 @@
 package com.example.recrutask
 
-
+/**
+ * Using this file to  declare all the variable resource ids and the texts that are used throughout the tests in other files.
+ * This will help us not do a considerable change in many files if there are text changes. Changing in this file would do
+ */
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.*
