@@ -26,7 +26,8 @@ class MainActivityTest {
     val defaultText = "Default"
     val onClickText = "okay"
     val nextActivity = onView(withText("Move"))
-    val secondaActivityDefaultText = "Check me"
+    val secondActivityDefaultText = "Check me"
+    val secondActivityChangedText = "hopin"
 
 }
 

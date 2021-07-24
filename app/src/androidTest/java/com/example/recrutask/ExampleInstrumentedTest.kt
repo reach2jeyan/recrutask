@@ -85,16 +85,16 @@ class ExampleInstrumentedTest {
 
     @Test
     fun testDynamictext() {
-        /** Given the default text is present in the next screen
+        /** Given the default text is present in the next screen, we can either set it static or mock the api call to return specific text
          * when the text is changed in the first screen
          * then check if the default text is changed in the next screen and is same as first screen*/
         elements.nextActivity.perform(ViewActions.click())
-        onView(withText(elements.secondaActivityDefaultText)).check(ViewAssertions.matches(isDisplayed()))
+        onView(withText(elements.secondActivityDefaultText)).check(ViewAssertions.matches(isDisplayed()))
         pressBack()
         onView(withId(R.id.editTextTextPassword)).perform(ViewActions.clearText())
-        onView(withId(R.id.editTextTextPassword)).perform(ViewActions.typeText("dynamic text"))
+        onView(withId(R.id.editTextTextPassword)).perform(ViewActions.typeText(elements.secondActivityChangedText))
         Espresso.closeSoftKeyboard()
         elements.nextActivity.perform(ViewActions.click())
-        onView(withText("dynamic text")).check(ViewAssertions.matches(isDisplayed()))
+        onView(withText(elements.secondActivityChangedText)).check(ViewAssertions.matches(isDisplayed()))
     }
 }
